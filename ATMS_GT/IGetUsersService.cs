@@ -21,6 +21,6 @@ namespace ATMS_GT
         int GetAvailableAmount(int uid);
         [OperationContract]
         void ReloadMoneyUID(int uid, int amount);
-        double Add(double a, double b);
+
     }
 }

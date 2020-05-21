@@ -33,9 +33,5 @@ namespace ATMS_GT
             usersManager.ReloadMoneyUID(uid, amount); 
         }
 
-        public double Add(double a, double b)
-        {
-            return a + b;
-        }
     }
 }
