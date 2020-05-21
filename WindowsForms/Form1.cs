@@ -50,8 +50,9 @@ namespace WindowsForms
             //client.get
             //buttonUsrByCard
                 //client.ge(int.Parse(textBoxUID.Text), int.Parse(textBoxAmount.Text));
-            var result = client.GetAvailableAmount(int.Parse(textBoxUID.Text));
-            textBoxAvAmount.Text = result.ToString();
+            var usrname = client.getUsernameByCardID(textBoxCardID.Text);
+            textBoxUsrname.Text = usrname.ToString();
         }
+
     }
 }

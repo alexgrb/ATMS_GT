@@ -90,7 +90,37 @@ namespace DAL
             return amount;
         }
 
-        public string getUsernameByCardID(int cardID)
+        public int GetAvailableAmountByUsername(string username)
+        {
+            int amount = 0;
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT AmountAvailable FROM [UserAccount] WHERE Username = @username";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            amount = (int)dr["AmountAvailable"];
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return amount;
+        }
+
+        public string getUsernameByCardID(string cardID)
         {
             string username = "";
 
@@ -130,6 +160,31 @@ namespace DAL
                     string query = "UPDATE [UserAccount] SET AmountAvailable=@amount WHERE UID=@uid";
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.AddWithValue("@uid", uid);
+                    cmd.Parameters.AddWithValue("@amount", amount);
+
+                    cn.Open();
+
+                    result = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return result;
+        }
+
+        public int ReloadMoneyUsername(string username, int amount)
+        {
+            int result = 0;
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE [UserAccount] SET AmountAvailable=@amount WHERE Username =@username";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@amount", amount);
 
                     cn.Open();

@@ -127,6 +127,12 @@ namespace WindowsForms.ServiceReferencePrinter {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUsersService/ReloadMoneyUID", ReplyAction="http://tempuri.org/IGetUsersService/ReloadMoneyUIDResponse")]
         System.Threading.Tasks.Task ReloadMoneyUIDAsync(int uid, int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUsersService/getUsernameByCardID", ReplyAction="http://tempuri.org/IGetUsersService/getUsernameByCardIDResponse")]
+        string getUsernameByCardID(string cardID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGetUsersService/getUsernameByCardID", ReplyAction="http://tempuri.org/IGetUsersService/getUsernameByCardIDResponse")]
+        System.Threading.Tasks.Task<string> getUsernameByCardIDAsync(string cardID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -178,6 +184,14 @@ namespace WindowsForms.ServiceReferencePrinter {
         
         public System.Threading.Tasks.Task ReloadMoneyUIDAsync(int uid, int amount) {
             return base.Channel.ReloadMoneyUIDAsync(uid, amount);
+        }
+        
+        public string getUsernameByCardID(string cardID) {
+            return base.Channel.getUsernameByCardID(cardID);
+        }
+        
+        public System.Threading.Tasks.Task<string> getUsernameByCardIDAsync(string cardID) {
+            return base.Channel.getUsernameByCardIDAsync(cardID);
         }
     }
 }

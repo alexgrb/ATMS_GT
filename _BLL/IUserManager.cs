@@ -12,7 +12,9 @@ namespace BLL
         int GetAvailableAmount(int id);
         int ReloadMoneyUID(int id, int amount);
 
-        string getUsernameByCardID(int cardID);
+        string getUsernameByCardID(string cardID);
+
+        int ReloadMoneyUsername(string username, int amount);
 
 
     }

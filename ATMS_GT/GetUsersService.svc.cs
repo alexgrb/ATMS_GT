@@ -33,12 +33,19 @@ namespace ATMS_GT
             usersManager.ReloadMoneyUID(uid, amount); 
         }
 
-        public string getUsernameByCardID(int cardID)
+        public string getUsernameByCardID(string cardID)
         {
             IUserDB userDB = new UsersDB();
             IUserManager usersManager = new UserManager(userDB);
             string usrname = usersManager.getUsernameByCardID(cardID);
             return usrname;
+        }
+
+        public void ReloadMoneyUsername(string username, int amount)
+        {
+            IUserDB userDB = new UsersDB();
+            IUserManager usersManager = new UserManager(userDB);
+            usersManager.ReloadMoneyUsername(username, amount);
         }
 
     }

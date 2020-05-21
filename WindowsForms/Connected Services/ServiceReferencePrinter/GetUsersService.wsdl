@@ -25,6 +25,12 @@
   <wsdl:message name="IGetUsersService_ReloadMoneyUID_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReloadMoneyUIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IGetUsersService_getUsernameByCardID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUsernameByCardID" />
+  </wsdl:message>
+  <wsdl:message name="IGetUsersService_getUsernameByCardID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUsernameByCardIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGetUsersService">
     <wsdl:operation name="GetUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IGetUsersService/GetUsers" message="tns:IGetUsersService_GetUsers_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="ReloadMoneyUID">
       <wsdl:input wsaw:Action="http://tempuri.org/IGetUsersService/ReloadMoneyUID" message="tns:IGetUsersService_ReloadMoneyUID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGetUsersService/ReloadMoneyUIDResponse" message="tns:IGetUsersService_ReloadMoneyUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsernameByCardID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetUsersService/getUsernameByCardID" message="tns:IGetUsersService_getUsernameByCardID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetUsersService/getUsernameByCardIDResponse" message="tns:IGetUsersService_getUsernameByCardID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGetUsersService" type="tns:IGetUsersService">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReloadMoneyUID">
       <soap:operation soapAction="http://tempuri.org/IGetUsersService/ReloadMoneyUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsernameByCardID">
+      <soap:operation soapAction="http://tempuri.org/IGetUsersService/getUsernameByCardID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
