@@ -10,7 +10,7 @@ namespace DTO
         public int UID { get; set; }
         public string Username { get; set; }
         public string CardID { get; set; }
-        public float AmountAvailable { get; set; }
+        public int AmountAvailable { get; set; }
 
         public override string ToString()
         {

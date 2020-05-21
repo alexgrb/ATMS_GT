@@ -16,6 +16,11 @@ namespace ATMS_GT
     {
         [OperationContract]
         List<UserAccount> GetUsers();
+
+        [OperationContract]
+        int GetAvailableAmount(int uid);
+        [OperationContract]
+        void ReloadMoneyUID(int uid, int amount);
         double Add(double a, double b);
     }
 }

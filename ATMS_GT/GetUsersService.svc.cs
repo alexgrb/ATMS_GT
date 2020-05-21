@@ -18,8 +18,22 @@ namespace ATMS_GT
             List<UserAccount> listUsers = usersManager.GetUsers();
             return listUsers;
         }
-     
-     public double Add(double a, double b)
+        public int GetAvailableAmount(int uid)
+        {
+            IUserDB userDB = new UsersDB();
+            IUserManager usersManager = new UserManager(userDB);
+            int availableAmount = usersManager.GetAvailableAmount(uid);
+            return availableAmount;
+        }
+
+        public void ReloadMoneyUID(int uid, int amount)
+        {
+            IUserDB userDB = new UsersDB();
+            IUserManager usersManager = new UserManager(userDB);
+            usersManager.ReloadMoneyUID(uid, amount); 
+        }
+
+        public double Add(double a, double b)
         {
             return a + b;
         }

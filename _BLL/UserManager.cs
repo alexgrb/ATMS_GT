@@ -20,13 +20,16 @@ namespace BLL
             return UserDB.GetUsers();
         }
 
-        public float GetAvailableAmount(int id)
+        public int GetAvailableAmount(int id)
         {
             return UserDB.GetAvailableAmount(id);
         }
 
-        public int ReloadMoneyUID(int id, double amount)
+        public int ReloadMoneyUID(int id, int amount)
         {
+            int availableAmount = UserDB.GetAvailableAmount(id);
+
+            amount += availableAmount;
             return UserDB.ReloadMoneyUID(id, amount);
         }
 

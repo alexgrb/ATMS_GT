@@ -44,7 +44,7 @@ namespace DAL
                             user.UID = (int)dr["UID"];
                             user.Username = (string)dr["Username"];
                             user.CardID = (string)dr["CardID"];
-                            user.AmountAvailable = (float)dr["AmountAvailable"];
+                            user.AmountAvailable = (int)dr["AmountAvailable"];
                             
                             results.Add(user);
                         }
@@ -60,23 +60,26 @@ namespace DAL
             return results;
         }
 
-        public float GetAvailableAmount(int uid)
+        public int GetAvailableAmount(int uid)
         {
-            float amount = 0;
+            int amount = 0;
 
             try
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT AmountAvailable FROM [UserAccount] where UID = @uid";
+                    string query = "SELECT AmountAvailable FROM [UserAccount] WHERE UID = @uid";
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.AddWithValue("@uid", uid);
 
                     cn.Open();
-
+                    
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        amount = (float)dr["AmountAvailable"];
+                        while (dr.Read())
+                        {
+                            amount = (int)dr["AmountAvailable"];
+                        }
                     }
                 }
             }
@@ -87,7 +90,7 @@ namespace DAL
             return amount;
         }
 
-        public int ReloadMoneyUID(int uid, double amount)
+        public int ReloadMoneyUID(int uid, int amount)
         {
             int result = 0;
             try
