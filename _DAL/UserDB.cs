@@ -90,6 +90,36 @@ namespace DAL
             return amount;
         }
 
+        public string getUsernameByCardID(int cardID)
+        {
+            string username = "";
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT Username FROM [UserAccount] WHERE CardID = @cardID";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@cardID", cardID);
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            username = (string)dr["Username"];
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return username;
+        }
+
         public int ReloadMoneyUID(int uid, int amount)
         {
             int result = 0;

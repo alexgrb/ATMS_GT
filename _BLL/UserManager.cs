@@ -33,6 +33,11 @@ namespace BLL
             return UserDB.ReloadMoneyUID(id, amount);
         }
 
+        public string getUsernameByCardID(int cardID)
+        {
+            return UserDB.getUsernameByCardID(cardID);
+        }
+
 
     }
 }

@@ -6,8 +6,8 @@ namespace ATMS_GT_Console
     {
         static void Main(string[] args)
         {
-            ServiceReferenceCalculator.CalculatorClient client = new ServiceReferenceCalculator.CalculatorClient();
-            var a = 6;
+            //ServiceReferenceCalculator.CalculatorClient client = new ServiceReferenceCalculator.CalculatorClient();
+          /*  var a = 6;
             var b = 2;
 
             var result = client.Add(a, b);
@@ -26,7 +26,7 @@ namespace ATMS_GT_Console
             var firstname = client.GetPersonById(id);
             Console.WriteLine($"Person with id {id}: {firstname}");
 
-            Console.ReadKey();
+            Console.ReadKey();*/
         }
     }
 }

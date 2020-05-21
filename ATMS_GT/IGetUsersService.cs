@@ -22,5 +22,8 @@ namespace ATMS_GT
         [OperationContract]
         void ReloadMoneyUID(int uid, int amount);
 
+        [OperationContract]
+        string getUsernameByCardID(int cardID);
+
     }
 }

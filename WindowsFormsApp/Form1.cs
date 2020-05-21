@@ -8,6 +8,5 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
         }
-
     }
 }

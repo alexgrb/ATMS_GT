@@ -10,5 +10,7 @@ namespace DAL
         List<UserAccount> GetUsers();
         int GetAvailableAmount(int id);
         int ReloadMoneyUID(int id, int amount);
+
+        string getUsernameByCardID(int cardID);
     }
 }
