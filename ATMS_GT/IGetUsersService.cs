@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,7 +15,7 @@ namespace ATMS_GT
     public interface IGetUsersService
     {
         [OperationContract]
-        //ist<UserAccount> GetUsers();
+        List<UserAccount> GetUsers();
         double Add(double a, double b);
     }
 }

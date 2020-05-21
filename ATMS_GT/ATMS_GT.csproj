@@ -90,6 +90,20 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_BLL\BBLL.csproj">
+      <Project>{55FD4729-8BB3-4494-8CD7-D3FB3B8F1BE3}</Project>
+      <Name>BBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_DAL\_DAL.csproj">
+      <Project>{6B7EA15A-3EC3-4E6C-85F0-DD65B16C6C97}</Project>
+      <Name>_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_DTO\_DTO.csproj">
+      <Project>{1EB386D0-0116-417F-BDB7-C704ADFD114E}</Project>
+      <Name>_DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

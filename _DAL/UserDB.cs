@@ -16,7 +16,8 @@ namespace DAL
 
         public UsersDB()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["WebServiceDB"].ConnectionString;
+            //hello
+            connectionString = ConfigurationManager.ConnectionStrings["DatabaseDB"].ConnectionString;
         }
 
         public List<UserAccount> GetUsers()
